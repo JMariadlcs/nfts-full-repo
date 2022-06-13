@@ -55,6 +55,66 @@ yarn add --dev path
 yarn hardhat deploy --tags randomipfs
 ```
 
+## HOW TO COMPILE
+
+```bash
+yarn hardhat compile
+```
+
+or
+
+```bash
+npx hardhat compile
+```
+
+## HOW TOT DEPLOY
+
+If you want to use [Hardhat shorthand](https://hardhat.org/guides/shorthand):
+
+```bash
+yarn global add hardhat-shorthand
+```
+
+You can now run Hardhat commands by:
+
+```bash
+hh compile
+hh deploy
+```
+
+## HOW TO TEST
+
+Two types of tests are created for this project:
+
+1. "Unit tests" inside [unit](https://github.com/JMariadlcs/raffle-full-stack/tree/main/test/unit): used to test functions separately
+2. "Integration tests" inside [staging](https://github.com/JMariadlcs/raffle-full-stack/tree/main/test/staging): used to test entire contracts
+
+To execute tests **unit tests** (on development chain):
+
+```bash
+yarn hardhat test
+```
+
+and to see test coverage:
+
+```bash
+yarn hardhat coverage
+```
+
+To execute tests **integrated tests** (on testnet):
+
+**REMINDER**: contract should be deployed with correct chainId on Chainlink VRF and must be added to Chainlink Keepers
+
+```bash
+yarn hardhat test --network rinkeby
+```
+
+and to see test coverage:
+
+```bash
+yarn hardhat coverage
+```
+
 ## REMINDERS
 
 **NOTICE**: most of the below mentioned dependencies are already installed, just check it and include the corresponding `requires` inside [hardhat.config.js](https://github.com/JMariadlcs/nfts-fullrepo/blob/main/hardhat.config.js).
