@@ -1,4 +1,4 @@
-const { network } = require("hardhat")
+const { network, ethers } = require("hardhat")
 const { networkConfig, developmentChains } = require("../helper-hardhat-config")
 const { storeImages, storeTokeUriMetadata } = require("../utils/uploadToPinata")
 const { verify } = require("../utils/verify")
@@ -17,16 +17,19 @@ const metadataTemplate = {
     ],
 }
 
+let tokenUris = [
+    'ipfs://QmaVkBn2tKmjbhphU7eyztbvSQU5EXDdqRyXZtRhSGgJGo',
+    'ipfs://QmYQC5aGZu2PTH8XzbJrbDnvhj3gVs7ya33H9mqUNvST3d',
+    'ipfs://QmZYmH5iDbD6v3U2ixoVAjioSzvWJszDzYdbeCLquGSpVm'
+]
+
+const FUND_AMOUNT = "1000000000000000000000"
+
 module.exports = async ({ getNamedAccounts, deployments }) => {
     const { deploy, log } = deployments
     const { deployer } = await getNamedAccounts()
     const chainId = network.config.chainId
-    let tokenUris = [
-        'ipfs://QmaVkBn2tKmjbhphU7eyztbvSQU5EXDdqRyXZtRhSGgJGo',
-        'ipfs://QmYQC5aGZu2PTH8XzbJrbDnvhj3gVs7ya33H9mqUNvST3d',
-        'ipfs://QmZYmH5iDbD6v3U2ixoVAjioSzvWJszDzYdbeCLquGSpVm'
-      ]
-
+    
     if (process.env.UPLOAD_TO_PINATA == "true") {
         tokenUris = await handleTokenUris()
     }
@@ -39,6 +42,7 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
         const transactionResponse = await vrfCoordinatorV2Mock.createSubscription() // create VRF SubscriptionId
         const transactionReceipt = await transactionResponse.wait(1) // inside `transactionReceipt`is the SubscriptionId
         subscriptionId = transactionReceipt.events[0].args.subId
+        await vrfCoordinatorV2Mock.fundSubscription(subscriptionId, FUND_AMOUNT)
 
     } else { // not localnetwork -> pick from networkConfig
         vrfCoordinatorV2Address = networkConfig[chainId]["vrfCoordinatorV2"]
