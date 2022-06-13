@@ -1,4 +1,22 @@
-# nfts-fullrepo
+# NFTS FULL REPO 🌃🌟
+
+This is a repo about NFTs. This repo is similar to the [NFT-dynamic-fully-on-chain](https://github.com/JMariadlcs/NFT-dynamic-fully-on-chain) and [NFT-IPFS-VRF](https://github.com/JMariadlcs/NFT-IPFS-VRF) repos but all together and much complete. Testing is done in this repo.
+
+Altough this repo is a similar implementation of the other 2 mentioned repos, this one is more structurated, is constructed in such a way that can be deployed on different chains automatically and testing is done.
+
+This is a workshop from Patrick Alpha's FFC couse.
+
+The workshop followed to complete this repo is [this one](https://github.com/PatrickAlphaC/hardhat-nft-fcc).
+
+The repo that we are going to implement is like [this one](https://www.youtube.com/watch?v=gyMwXuJrbJQ&t=15996s).
+
+## PROJECT
+
+We are creating 3 contracts:
+
+1. Basic NFT
+2. Random IPFS NFT
+3. Dynamic SVG NFT
 
 ## CREATE SIMILAR PROJECT FROM SCRATCH
 
