@@ -26,7 +26,7 @@ The repo that we are going to implement is like [this one](https://www.youtube.c
 
 ## PROJECT
 
-We are creating 3 contracts:
+We are creating 3 contracts for different NFT implementations:
 
 1. Basic NFT ✅.
 2. Random IPFS NFT ✅.
