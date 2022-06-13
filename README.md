@@ -49,7 +49,7 @@ yarn add --dev @pinata/sdk
 yarn add --dev path
 ```
 
--   Create [uploadToPinata]() folder and execute:
+-   Create [uploadToPinata](https://github.com/JMariadlcs/nfts-fullrepo/blob/main/utils/uploadToPinata.js) folder and execute:
 
 ```bash
 yarn hardhat deploy --tags randomipfs
