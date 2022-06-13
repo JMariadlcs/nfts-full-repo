@@ -12,9 +12,9 @@ The repo that we are going to implement is like [this one](https://www.youtube.c
 
 <br/>
 <p align="center">
-<img src="./randomNft/images/pug.png" width="225" alt="NFT Pug">
-<img src="./randomNft/images/shiba-inu.png" width="225" alt="NFT Shiba">
-<img src="./randomNft/images/st-bernard.png" width="225" alt="NFT St.Bernard">
+<img src="./images/randomNft/pug.png" width="225" alt="NFT Pug">
+<img src="./images/randomNft/shiba-inu.png" width="225" alt="NFT Shiba">
+<img src="./images/randomNft/st-bernard.png" width="225" alt="NFT St.Bernard">
 </p>
 <br/>
 
