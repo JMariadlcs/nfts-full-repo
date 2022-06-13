@@ -10,6 +10,14 @@ The workshop followed to complete this repo is [this one](https://github.com/Pat
 
 The repo that we are going to implement is like [this one](https://www.youtube.com/watch?v=gyMwXuJrbJQ&t=15996s).
 
+<br/>
+<p align="center">
+<img src="./images/pug.png" width="225" alt="NFT Pug">
+<img src="./images/shiba-inu.png" width="225" alt="NFT Shiba">
+<img src="./images/st-bernard.png" width="225" alt="NFT St.Bernard">
+</p>
+<br/>
+
 ## PROJECT
 
 We are creating 3 contracts:
@@ -87,26 +95,11 @@ hh deploy
 Two types of tests are created for this project:
 
 1. "Unit tests" inside [unit](https://github.com/JMariadlcs/nfts-fullrepo/tree/main/test/unit): used to test functions separately
-2. "Integration tests" inside [staging](https://github.com/JMariadlcs/raffle-full-stack/tree/main/test/staging): used to test entire contracts
 
 To execute tests **unit tests** (on development chain):
 
 ```bash
 yarn hardhat test
-```
-
-and to see test coverage:
-
-```bash
-yarn hardhat coverage
-```
-
-To execute tests **integrated tests** (on testnet):
-
-**REMINDER**: contract should be deployed with correct chainId on Chainlink VRF and must be added to Chainlink Keepers
-
-```bash
-yarn hardhat test --network rinkeby
 ```
 
 and to see test coverage:
