@@ -2,7 +2,7 @@
 
 This is a repo about NFTs. This repo is similar to the [NFT-dynamic-fully-on-chain](https://github.com/JMariadlcs/NFT-dynamic-fully-on-chain) and [NFT-IPFS-VRF](https://github.com/JMariadlcs/NFT-IPFS-VRF) repos but all together and much complete. Testing is done in this repo.
 
-Altough this repo is a similar implementation of the other 2 mentioned repos, this one is more structurated, is constructed in such a way that can be deployed on different chains automatically and testing is done.
+Altough this repo is a similar implementation of the other 2 mentioned repos, this one is more structurated, is constructed in such a way that can be deployed on different chains automatically and testing is done and [pinata](https://www.pinata.cloud/) is used to host NFT Uris.
 
 This is a workshop from Patrick Alpha's FFC couse.
 
@@ -38,6 +38,21 @@ yarn add --dev @nomiclabs/hardhat-waffle@^2.0.0 ethereum-waffle@^3.0.0 chai@^4.2
 
 ```bash
 yarn add --dev @openzeppelin/contracts
+```
+
+## UPLOAD FILES TO PINATA
+
+-   Use [pinata](https://www.pinata.cloud/):
+
+```bash
+yarn add --dev @pinata/sdk
+yarn add --dev path
+```
+
+-   Create [uploadToPinata]() folder and execute:
+
+```bash
+yarn hardhat deploy --tags randomipfs
 ```
 
 ## REMINDERS
@@ -126,6 +141,7 @@ require("@nomiclabs/hardhat-waffle");
 -   [Chainlink VRF](https://docs.chain.link/docs/get-a-random-number/): NECESARY for getting an actually random number
 -   [Chainlink VRF contract addresses](https://docs.chain.link/docs/vrf-contracts/): Smart Contract addresses for Chainlink VRF (VRFCoordinator and Key Hash)
 -   [Chainlink VRF subscription](https://vrf.chain.link): Needed to create subscriptionId for using Chainlink VRF - Create subscription - add funds - get 'ID' - add deployed Smart Contract address as consumer
+-   [pinata](https://www.pinata.cloud/)
 
 3. DYNAMIC SVG NFT:
 
