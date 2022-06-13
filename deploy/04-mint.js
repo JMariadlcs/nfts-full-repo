@@ -21,7 +21,7 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
     console.log(`Basic NFT index 0 tokenURI: ${await basicNft.tokenURI(0)}`)
 
     // Dynamic SVG  NFT
-    const highValue = ethers.utils.parseEther("4000")
+    const highValue = ethers.utils.parseEther("40")
     const dynamicSvgNft = await ethers.getContract("DynamicSvgNft", deployer)
     const dynamicSvgNftMintTx = await dynamicSvgNft.mintNft(highValue)
     await dynamicSvgNftMintTx.wait(1)
