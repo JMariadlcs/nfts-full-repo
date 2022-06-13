@@ -35,6 +35,9 @@ We are creating 3 contracts:
 3. Dynamic SVG NFT ✅.
     - Pros: Data is on-chain.
     - Cons: Much more expensive.
+    - Objetives: Mint an NFT based on the price of ETH
+        - If ETHprice > someNumer: NFT1
+        - if ETHprice < someNumber: NFT2
 
 ## CREATE SIMILAR PROJECT FROM SCRATCH
 
