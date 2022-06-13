@@ -1,4 +1,4 @@
-/* This Script is used to deploy BasicNFT.sol contract:
+/* This Script is used to deploy DynamicSvgNft.sol contract:
     - LOCALLY:
         Deploy all scripts: 'yarn hardhat deploy'
         Deploy ONLY this script: 'yarn hardhat deploy --tags dynamicsvg,mocks'
