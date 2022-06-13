@@ -53,6 +53,6 @@ mocha: {
   timeout: 200000, // 200 seconds max
 },
 solidity: {
-  compilers: [{ version: "0.8.7" }, { version: "0.8.0" }],
+  compilers: [{ version: "0.8.7" }, { version: "0.8.8" }, { version: "0.6.6" }],
 },
 };

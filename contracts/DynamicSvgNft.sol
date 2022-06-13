@@ -14,7 +14,7 @@ import "base64-sol/base64.sol";
 */
 contract DynamicSvgNft is ERC721 {
 
-    /// @notice // Chainlink price feed variables
+    /// @notice Chainlink price feed variables
     AggregatorV3Interface internal immutable i_priceFeed; 
 
     /// @notice Nft Variables
@@ -22,15 +22,17 @@ contract DynamicSvgNft is ERC721 {
     string private s_lowImageURI; // frown image
     string private s_highImageURI; // high image
     string private constant base64EncodedSvgPrefix = "data:image/svg+xml;base64,"; // used to genera SVG onchain
-    int256 public immutable i_threshold; // threshold to decide which image to pick
-   
+    mapping(uint256 => int256) public s_tokenIdToHighValue;
 
-    constructor(address priceFeedAddress, string memory lowSvg, string memory highSvg, int256 threshold) ERC721("Dynamic SVG NFT", "DSN") {
-        s_tokenCounter = 0;
+    /// @notice Events
+   event CreatedNFT(uint256 indexed tokenId, int256 highValue);
+
+    constructor(address priceFeedAddress, string memory lowSvg, string memory highSvg) ERC721("Dynamic SVG NFT", "DSN") {
+        i_priceFeed = AggregatorV3Interface(priceFeedAddress); // get price feed Smart Contract (Interface(Address) == Contract)
+
         s_lowImageURI = svgToImageURI(lowSvg);
         s_highImageURI = svgToImageURI(highSvg); 
-        i_priceFeed = AggregatorV3Interface(priceFeedAddress); // get price feed Smart Contract (Interface(Address) == Contract)
-        i_threshold = threshold;
+        s_tokenCounter = 0;
     }
 
     // FUNCIONS RELATED TO NFT
@@ -49,12 +51,16 @@ contract DynamicSvgNft is ERC721 {
     /**
     * @notice function to mint NFT
     * @dev
+    * - Users can select threshold of deciding NFT (highValue)
     * - Mint NFT using OpenZeppeling function
     * - Update s_tokenCounter
+    * - Emit event
     */
-    function mintNft() public {
+    function mintNft(int256 highValue) public {
+        s_tokenIdToHighValue[s_tokenCounter] = highValue;
         _safeMint(msg.sender, s_tokenCounter);
         s_tokenCounter = s_tokenCounter +1; 
+        emit CreatedNFT(s_tokenCounter, highValue);
     }
 
     /// @notice function to return first part of URI
@@ -70,18 +76,23 @@ contract DynamicSvgNft is ERC721 {
     * 'virtual override': would mean that the function is overridable
     * - Encode JSON with Base64.sol
     * - 'pure' function because does not read neither write any state from the blockchain
+    * - Should check that tokenId exists, if not -> revert
+    * - Should encode base64 to bytes metadata
+    * - Should join baseURI and metadata
     */
-    function tokenURI(uint256 /*tokenId*/) public view override returns(string memory) {
+    function tokenURI(uint256 tokenId) public view override returns(string memory) {
+        require(_exists(tokenId), "ERC721Metadata: URI query for nonexistent token");
 
-        // part used to select image depeding on ETH price
-        (, int256 price, ,,) = i_priceFeed.latestRoundData(); // see Chainlink Data Feed documentation
-        string memory imageUri = s_lowImageURI; // set image to low image
-        if(price > i_threshold) { // if price is high set it to high image
+        // Part used to select image depeding on ETH price using Chainlink PriceFeed
+        (, int256 price, ,,) = i_priceFeed.latestRoundData(); 
+        string memory imageUri = s_lowImageURI; 
+        if(price > s_tokenIdToHighValue[tokenId]) { 
             imageUri = s_highImageURI;
         }
 
+        // set NFT metadata JSON
         bytes memory metaDataTemplate = (
-            abi.encodePacked('{"name":"Dyamic NFT", "description":"An NFT that changes based on the Chainlink Feed", "attributes":[{"trait_type": "coolness", "value": 100}], "image":"',
+            abi.encodePacked('{"name":"',name(),'", "description":"An NFT that changes based on the Chainlink Feed", "attributes":[{"trait_type": "coolness", "value": 100}], "image":"',
             imageUri,
             '"}'
             ));
@@ -89,7 +100,7 @@ contract DynamicSvgNft is ERC721 {
         bytes memory metaDataTemplateInBytes = bytes(metaDataTemplate); // nedeed to use Base64.sol encode() function
         string memory encodedMetada = Base64.encode(metaDataTemplateInBytes);
         
-        return (string(abi.encodePacked(_baseURI(), encodedMetada))); // return both strings concatenated (baseURI + encodedMEtada) = fullJSON encoded except image 
+        return (string(abi.encodePacked(_baseURI(), encodedMetada))); // return both strings concatenated (baseURI + encodedMEtada) = fullJSON encoded 
     }
 
     // GETTERS FUNCTIONS

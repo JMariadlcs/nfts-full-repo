@@ -61,6 +61,12 @@ yarn add --dev @nomiclabs/hardhat-waffle@^2.0.0 ethereum-waffle@^3.0.0 chai@^4.2
 yarn add --dev @openzeppelin/contracts
 ```
 
+-   Install Base64 dependencies (to encode SVGs):
+
+```bash
+yarn add --dev base64-sol
+```
+
 ## UPLOAD FILES TO PINATA
 
 -   Use [pinata](https://www.pinata.cloud/):

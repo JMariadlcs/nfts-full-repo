@@ -1,3 +1,12 @@
+/* This Script is used to deploy BasicNFT.sol contract:
+    - LOCALLY:
+        Deploy all scripts: 'yarn hardhat deploy'
+        Deploy ONLY this script: 'yarn hardhat deploy --tags randomipfs,mocks'
+    - TESTNET
+        Deploy all scripts: 'yarn hardhat deploy --network rinkeby'
+        Deploy ONLY this script: 'yarn hardhat deploy --tags randomipfs --network rinkeby'
+*/
+
 const { network, ethers } = require("hardhat")
 const { networkConfig, developmentChains } = require("../helper-hardhat-config")
 const { storeImages, storeTokeUriMetadata } = require("../utils/uploadToPinata")
