@@ -34,6 +34,12 @@ yarn hardhat
 yarn add --dev @nomiclabs/hardhat-waffle@^2.0.0 ethereum-waffle@^3.0.0 chai@^4.2.0 @nomiclabs/hardhat-ethers@^2.0.0 ethers@^5.0.0 @nomiclabs/hardhat-etherscan@^3.0.0 dotenv@^16.0.0 eslint@^7.29.0 eslint-config-prettier@^8.3.0 eslint-config-standard@^16.0.3 eslint-plugin-import@^2.23.4 eslint-plugin-node@^11.1.0 eslint-plugin-prettier@^3.4.0 eslint-plugin-promise@^5.1.0 hardhat-gas-reporter@^1.0.4 prettier@^2.3.2 prettier-plugin-solidity@^1.0.0-beta.13 solhint@^3.3.6 solidity-coverage@^0.7.16 @nomiclabs/hardhat-ethers@npm:hardhat-deploy-ethers ethers @chainlink/contracts hardhat-deploy hardhat-shorthand @aave/protocol-v2
 ```
 
+-   Install OpenZeppelin dependencies (contracts):
+
+```bash
+yarn add --dev @openzeppelin/contracts
+```
+
 ## REMINDERS
 
 **NOTICE**: most of the below mentioned dependencies are already installed, just check it and include the corresponding `requires` inside [hardhat.config.js](https://github.com/JMariadlcs/nfts-fullrepo/blob/main/hardhat.config.js).
@@ -106,7 +112,13 @@ require("@nomiclabs/hardhat-waffle");
 
 ## RESOURCES
 
-1. RANDOM NFT:
+1. BASIC NFT:
+
+-   [Openzeppelin github](https://github.com/OpenZeppelin/openzeppelin-contracts)
+-   [Openzeppelin ERC721](https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/contracts/token/ERC721)
+-   [Openzeppelin ERC721 Smart Contract](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC721/ERC721.sol)
+
+2. RANDOM NFT:
 
 -   [hardhat-nft-fcc](https://github.com/PatrickAlphaC/hardhat-nft-fcc): Patrick's repo for NFTs
 -   [hardhat-starter-kit](https://github.com/smartcontractkit/hardhat-starter-kit)
@@ -115,7 +127,7 @@ require("@nomiclabs/hardhat-waffle");
 -   [Chainlink VRF contract addresses](https://docs.chain.link/docs/vrf-contracts/): Smart Contract addresses for Chainlink VRF (VRFCoordinator and Key Hash)
 -   [Chainlink VRF subscription](https://vrf.chain.link): Needed to create subscriptionId for using Chainlink VRF - Create subscription - add funds - get 'ID' - add deployed Smart Contract address as consumer
 
-2. DYNAMIC SVG NFT:
+3. DYNAMIC SVG NFT:
 
 -   [hardhat-nft-fcc](https://github.com/PatrickAlphaC/hardhat-nft-fcc): Patrick's repo for NFTs.
 -   [hardhat-starter-kit](https://github.com/smartcontractkit/hardhat-starter-kit)
