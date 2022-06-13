@@ -86,7 +86,7 @@ hh deploy
 
 Two types of tests are created for this project:
 
-1. "Unit tests" inside [unit](https://github.com/JMariadlcs/raffle-full-stack/tree/main/test/unit): used to test functions separately
+1. "Unit tests" inside [unit](https://github.com/JMariadlcs/nfts-fullrepo/tree/main/test/unit): used to test functions separately
 2. "Integration tests" inside [staging](https://github.com/JMariadlcs/raffle-full-stack/tree/main/test/staging): used to test entire contracts
 
 To execute tests **unit tests** (on development chain):
