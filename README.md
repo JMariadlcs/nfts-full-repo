@@ -17,6 +17,12 @@ The repo that we are going to implement is like [this one](https://www.youtube.c
 <img src="./images/randomNft/st-bernard.png" width="225" alt="NFT St.Bernard">
 </p>
 <br/>
+<br/>
+<p align="center">
+<img src="./images/dynamicNft/happy.svg" width="225" alt="NFT Happy">
+<img src="./images/dynamicNft/frown.svg" width="225" alt="NFT Frown">
+</p>
+<br/>
 
 ## PROJECT
 
