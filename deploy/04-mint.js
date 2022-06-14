@@ -4,7 +4,7 @@
         Deploy ONLY this script: 'yarn hardhat deploy --tags mint,mocks'
     - TESTNET
         Deploy all scripts: 'yarn hardhat deploy --network rinkeby'
-        Deploy ONLY this script: 'yarn hardhat deploy --tags mint --network rinkeby'
+        Deploy ONLY this script: 'yarn hardhat deploy --network rinkeby --tags mint'
 */
 const { network, ethers } = require("hardhat")
 

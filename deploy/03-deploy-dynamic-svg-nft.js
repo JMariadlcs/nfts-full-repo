@@ -3,8 +3,8 @@
         Deploy all scripts: 'yarn hardhat deploy'
         Deploy ONLY this script: 'yarn hardhat deploy --tags dynamicsvg,mocks'
     - TESTNET
-        Deploy all scripts: 'yarn hardhat deploy --network rinkeby'
-        Deploy ONLY this script: 'yarn hardhat deploy --tags dynamicsvg --network rinkeby'
+        Deploy all scripts: 'yarn hardhat deploy --network rinkeby --tags main'
+        Deploy ONLY this script: 'yarn hardhat deploy --network rinkeby --tags dynamicsvg'
 */
 
 const { network } = require("hardhat")

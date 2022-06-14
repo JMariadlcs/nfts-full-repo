@@ -3,8 +3,8 @@
         Deploy all scripts: 'yarn hardhat deploy'
         Deploy ONLY this script: 'yarn hardhat deploy --tags randomipfs,mocks'
     - TESTNET
-        Deploy all scripts: 'yarn hardhat deploy --network rinkeby'
-        Deploy ONLY this script: 'yarn hardhat deploy --tags randomipfs --network rinkeby'
+        Deploy all scripts: 'yarn hardhat deploy --network rinkeby --tags main'
+        Deploy ONLY this script: 'yarn hardhat deploy --network rinkeby -tags randomipfs'
 */
 
 const { network, ethers } = require("hardhat")

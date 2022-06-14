@@ -102,11 +102,20 @@ If you want to use [Hardhat shorthand](https://hardhat.org/guides/shorthand):
 yarn global add hardhat-shorthand
 ```
 
-You can now run Hardhat commands by:
+-   Deploy to local network (Harhat by default):
 
 ```bash
 hh compile
 hh deploy
+```
+
+-   Deploy to a TESTNET (Rinkeby):
+    You can not deploy all scripts at the same time because you can deploy [mint.js](https://github.com/JMariadlcs/nfts-fullrepo/blob/main/deploy/04-mint.js) script without firtly add randomNFT to ConsumerBase.
+
+To deploy every script expect [mint.js](https://github.com/JMariadlcs/nfts-fullrepo/blob/main/deploy/04-mint.js):
+
+```bash
+yarn hardhat deploy --network rinkeby --tags main
 ```
 
 ## HOW TO TEST
